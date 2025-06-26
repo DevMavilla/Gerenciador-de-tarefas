@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow | Sistema de Tarefas Gamificado</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/typography.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/spacing.css">
+    <link rel="stylesheet" href="styles/components/button.css">
+    <link rel="stylesheet" href="styles/components/card.css">
+    <link rel="stylesheet" href="styles/components/header.css">
+    <link rel="stylesheet" href="styles/components/modal.css">
+    <link rel="stylesheet" href="styles/layout/container.css">
+    <link rel="stylesheet" href="styles/layout/grid.css">
+</head>
+<body>
+
+    <!-- Barra de status gamificada -->
+    <header class="gamification-bar">
+        <div class="user-profile">
+            <div class="avatar">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='8' r='4' fill='%236C63FF'/%3E%3Cpath d='M20 19v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6z' fill='%236C63FF'/%3E%3C/svg%3E" alt="Avatar">
+                <span class="level-badge" id="level-badge">1</span>
+            </div>
+            <div class="user-info">
+                <h1>TaskFlow</h1>
+                <p>Organize. Conquiste. Repita.</p>
+            </div>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-item energy">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="energy-fill" style="width: 100%"></div>
+                </div>
+                <span id="energy-text"><i class="fas fa-bolt"></i> Energia: 100%</span>
+            </div>
+            
+            <div class="stat-item">
+                <i class="fas fa-star"></i> 
+                <span id="xp-display">XP: 0</span>
+            </div>
+            
+            <div class="stat-item">
+                <i class="fas fa-coins"></i> 
+                <span id="coins-display">Moedas: 0</span>
+            </div>
+            
+            <div class="stat-item">
+                <i class="fas fa-level-up-alt"></i> 
+                <span id="level-display">Nível: 1</span>
+            </div>
+        </div>
+        
+        <div class="date-section">
+            <div class="current-date">
+                <i class="far fa-calendar"></i>
+                <span id="current-date">Carregando data...</span>
+            </div>
+            <div class="productivity-score">
+                <i class="fas fa-chart-line"></i>
+                <span>Produtividade: <span id="productivity-display">0%</span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Área principal com sistema Kamban -->
+    <main class="container">
+        <section class="kamban-board">
+            <div class="kamban-column" id="todo-column">
+                <div class="column-header">
+                    <h2><i class="fas fa-list"></i> Para Fazer</h2>
+                    <span class="task-count" id="todo-count">0</span>
+                </div>
+                <div class="tasks-container">
+                    <!-- Tarefas serão adicionadas dinamicamente -->
+                </div>
+                <button class="add-task-btn" aria-label="Adicionar nova tarefa">
+                    <i class="fas fa-plus"></i> Adicionar Tarefa
+                </button>
+            </div>
+            
+            <div class="kamban-column" id="progress-column">
+                <div class="column-header">
+                    <h2><i class="fas fa-sync-alt"></i> Em Progresso</h2>
+                    <span class="task-count" id="progress-count">0</span>
+                </div>
+                <div class="tasks-container">
+                    <!-- Tarefas serão adicionadas dinamicamente -->
+                </div>
+            </div>
+            
+            <div class="kamban-column" id="review-column">
+                <div class="column-header">
+                    <h2><i class="fas fa-search"></i> Revisão</h2>
+                    <span class="task-count" id="review-count">0</span>
+                </div>
+                <div class="tasks-container">
+                    <!-- Tarefas serão adicionadas dinamicamente -->
+                </div>
+            </div>
+            
+            <div class="kamban-column" id="done-column">
+                <div class="column-header">
+                    <h2><i class="fas fa-check-circle"></i> Concluído</h2>
+                    <span class="task-count" id="done-count">0</span>
+                </div>
+                <div class="tasks-container">
+                    <!-- Tarefas serão adicionadas dinamicamente -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Painel lateral com estatísticas e conquistas -->
+        <aside class="sidebar">
+            <div class="stats-widget">
+                <h3><i class="fas fa-chart-pie"></i> Suas Estatísticas</h3>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="total-tasks">0</span>
+                        <span class="stat-label">Tarefas totais</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="completed-tasks">0</span>
+                        <span class="stat-label">Concluídas</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="completion-rate">0%</span>
+                        <span class="stat-label">Taxa de conclusão</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-hourglass-half"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="avg-time">0h</span>
+                        <span class="stat-label">Tempo médio/tarefa</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="achievements-widget">
+                <h3><i class="fas fa-trophy"></i> Conquistas</h3>
+                <div class="achievements-grid" id="achievements-container">
+                    <!-- Conquistas serão adicionadas dinamicamente -->
+                </div>
+            </div>
+            
+            <div class="challenge-widget">
+                <h3><i class="fas fa-flag"></i> Desafio Diário</h3>
+                <div class="challenge-content">
+                    <p id="daily-challenge">Carregando desafio...</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="challenge-progress" style="width: 0%"></div>
+                    </div>
+                    <div class="reward">
+                        <i class="fas fa-gift"></i> Recompensa: <span id="challenge-reward">0 XP + 0 moedas</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+
+
+    
+    <!-- Modal para adicionar/editar tarefas -->
+    <div class="modal" id="task-modal">
+        <div class="modal-content">
+            <span class="close-modal" aria-label="Fechar modal">&times;</span>
+            <h2><i class="fas fa-plus-circle"></i> <span id="modal-title">Adicionar Nova Tarefa</span></h2>
+            
+            <form id="task-form">
+                <div class="form-group">
+                    <label for="task-title">Título da Tarefa *</label>
+                    <input type="text" id="task-title" placeholder="O que precisa ser feito?" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="task-description">Descrição</label>
+                    <textarea id="task-description" placeholder="Detalhes da tarefa..."></textarea>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="task-date">Data</label>
+                        <input type="date" id="task-date">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="task-time">Hora</label>
+                        <input type="time" id="task-time">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label id="priority-label">Prioridade</label>
+                    <div class="priority-selector" role="group" aria-labelledby="priority-label">
+                        <button type="button" class="priority-option low-priority" data-priority="low" aria-pressed="false" aria-label="Prioridade Baixa">
+                            <i class="fas fa-droplet"></i> Baixa
+                        </button>
+                        <button type="button" class="priority-option medium-priority" data-priority="medium" aria-pressed="false" aria-label="Prioridade Média">
+                            <i class="fas fa-exclamation"></i> Média
+                        </button>
+                        <button type="button" class="priority-option high-priority active" data-priority="high" aria-pressed="true" aria-label="Prioridade Alta">
+                            <i class="fas fa-fire"></i> Alta
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="task-category">Categoria</label>
+                    <select id="task-category">
+                        <option value="work">Trabalho</option>
+                        <option value="personal">Pessoal</option>
+                        <option value="study">Estudo</option>
+                        <option value="health">Saúde</option>
+                        <option value="other">Outro</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label id="recurrence-label">Repetição</label>
+                    <div class="recurring-options" role="group" aria-labelledby="recurrence-label">
+                        <button type="button" class="recurring-option active" data-recurrence="none" aria-pressed="true" aria-label="Nenhuma repetição">Nenhuma</button>
+                        <button type="button" class="recurring-option" data-recurrence="daily" aria-pressed="false" aria-label="Repetir Diariamente">Diária</button>
+                        <button type="button" class="recurring-option" data-recurrence="weekly" aria-pressed="false" aria-label="Repetir Semanalmente">Semanal</button>
+                        <button type="button" class="recurring-option" data-recurrence="monthly" aria-pressed="false" aria-label="Repetir Mensalmente">Mensal</button>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="task-estimated">Tempo Estimado (min)</label>
+                    <input type="number" id="task-estimated" min="1" value="30">
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" aria-label="Cancelar">Cancelar</button>
+                    <button type="submit" class="btn-save" aria-label="Salvar tarefa">Salvar Tarefa</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Notificações -->
+    <div class="notification-area">
+        <!-- Notificações serão adicionadas dinamicamente -->
+    </div>
+    
+    <!-- Overlay de energia crítica -->
+    <div id="energy-overlay" style="display: none;">
+        <div class="rest-message">
+            <h2>⛱️ Hora do Descanso!</h2>
+            <p>Seu nível de energia está crítico. Descanse por alguns minutos...</p>
+            <div class="rest-timer">05:00</div>
+            <p>Voltaremos automaticamente quando sua energia recarregar</p>
+        </div>
+    </div>
+
+     <div class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Nova Tarefa</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <input type="text" placeholder="Título">
+          <button type="submit">Salvar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+    <script src="js/app.js"></script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

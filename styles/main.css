@@ -1,0 +1,84 @@
+/* Importação de todos os estilos na ordem correta */
+@import url('base/reset.css');
+@import url('base/variables.css');
+@import url('base/typography.css');
+@import url('base/base.css');
+
+@import url('layout/grid.css');
+@import url('layout/flex.css');
+@import url('layout/container.css');
+
+@import url('components/buttons.css');
+@import url('components/cards.css');
+@import url('components/modal.css');
+@import url('components/kamban.css');
+@import url('components/header.css');
+@import url('components/sidebar.css');
+@import url('components/notifications.css');
+
+@import url('utilities/spacing.css');
+@import url('utilities/colors.css');
+@import url('utilities/display.css');
+@import url('utilities/animations.css');
+
+/* Estilos globais adicionais */
+body {
+  background-color: #f5f7fa;
+  color: var(--gray-800);
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+}
+
+/* Psicologia analítica: cores por estado emocional */
+.energy-low {
+  color: var(--danger);
+  font-weight: bold;
+}
+
+.energy-medium {
+  color: var(--warning);
+}
+
+.energy-high {
+  color: var(--success);
+}
+
+/* Gamificação: efeito de destaque para conquistas */
+@keyframes achievementUnlock {
+  0% { transform: scale(0.8); opacity: 0; }
+  70% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.achievement.unlocked {
+  animation: achievementUnlock 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-md);
+    border-bottom: 2px solid rgba(67, 97, 238, 0.15);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.logo i {
+    font-size: 1.9rem;
+    color: var(--primary);
+}
+
+.footer {
+    text-align: center;
+    margin-top: var(--space-xl);
+    padding-top: var(--space-md);
+    color: var(--gray-600);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--gray-200);
+}

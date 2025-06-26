@@ -1,0 +1,79 @@
+/* Psicologia da sidebar: informação complementar */
+.sidebar {
+  background-color: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-lg);
+  align-self: start;
+}
+
+.widget {
+  margin-bottom: var(--space-xl);
+}
+
+.widget:last-child {
+  margin-bottom: 0;
+}
+
+.widget h3 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 1.25rem;
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--gray-200);
+  margin-bottom: var(--space-md);
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--space-md);
+}
+
+.stat-icon {
+  width: 40px;
+  height: 40px;
+  background-color: var(--gray-100);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--space-md);
+  color: var(--primary);
+}
+
+.stat-info {
+  flex: 1;
+}
+
+.stat-value {
+  font-weight: 700;
+  font-size: 1.25rem;
+  display: block;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--gray-600);
+}
+
+.challenge-content {
+  background-color: var(--gray-100);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.challenge-content p {
+  margin-bottom: var(--space-sm);
+}
+
+.reward {
+  background-color: rgba(255, 101, 132, 0.1);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm);
+  margin-top: var(--space-md);
+  text-align: center;
+  font-weight: 600;
+  color: var(--accent);
+}

@@ -1,0 +1,266 @@
+/* styles/base/_base.css */
+/* ============= FUNDAMENTOS VISUAIS ============= */
+/* Baseado em princípios de psicologia, neurociência e marketing */
+
+/* 1. Reset com foco em experiência do usuário */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.6;
+  background-color: var(--gray-100);
+  color: var(--gray-800);
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  overflow-x: hidden;
+}
+
+/* 2. Tipografia com hierarquia visual clara (neurociência cognitiva) */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--space-md);
+  color: var(--gray-900);
+  
+  /* Gradiente sutil para engajamento visual */
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(135deg, var(--secondary), var(--primary));
+}
+
+h1 {
+  font-size: 2.5rem;
+  letter-spacing: -0.5px;
+}
+
+h2 {
+  font-size: 2rem;
+  letter-spacing: -0.25px;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+p {
+  margin-bottom: var(--space-md);
+  max-width: 65ch; /* Comprimento ideal para leitura */
+}
+
+/* 3. Links com feedback visual claro (psicologia da ação) */
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  position: relative;
+  font-weight: 600;
+}
+
+a:hover, a:focus {
+  color: var(--secondary);
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent);
+  transition: width var(--transition-medium);
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+/* 4. Imagens responsivas com efeito sutil (engajamento visual) */
+img {
+  max-width: 100%;
+  display: block;
+  border-radius: var(--radius-md);
+  transition: transform var(--transition-medium);
+}
+
+img:hover {
+  transform: scale(1.02);
+}
+
+/* 5. Foco acessível com psicologia de atenção */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* 6. Psicologia de redução de movimento */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 7. Estados de energia para gamificação emocional */
+.energy-low {
+  color: var(--danger);
+  font-weight: 700;
+  animation: pulse 1.5s infinite;
+}
+
+.energy-medium {
+  color: var(--warning);
+  font-weight: 600;
+}
+
+.energy-high {
+  color: var(--success);
+  font-weight: 600;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+/* 8. Feedback de validação de formulário (neurofeedback) */
+input:invalid,
+textarea:invalid {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.2);
+}
+
+input:valid,
+textarea:valid {
+  border-color: var(--success);
+}
+
+/* 9. Espaçamento natural para listas (cognição) */
+ul, ol {
+  padding-left: var(--space-lg);
+  margin-bottom: var(--space-md);
+}
+
+li {
+  margin-bottom: var(--space-sm);
+  position: relative;
+}
+
+li::before {
+  content: '•';
+  color: var(--primary);
+  position: absolute;
+  left: -1.25rem;
+}
+
+/* 10. Container principal com limitação de largura (foco cognitivo) */
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+/* 11. Psicologia da seleção (feedback tátil) */
+::selection {
+  background-color: var(--primary);
+  color: white;
+}
+
+/* 12. Esconder conteúdo visualmente, mas mantendo acessível */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* 13. Efeito de profundidade para cards (neurodesign) */
+.card-effect {
+  transition: all var(--transition-medium);
+  box-shadow: var(--shadow-sm);
+}
+
+.card-effect:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* 14. Psicologia do progresso (motivação visual) */
+.progress-container {
+  position: relative;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background-color: var(--gray-300);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transition: width var(--transition-slow) cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* 15. Feedback de carregamento (redução de ansiedade) */
+@keyframes loadingPulse {
+  0% { opacity: 0.6; transform: scale(0.95); }
+  50% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0.6; transform: scale(0.95); }
+}
+
+.loading {
+  animation: loadingPulse 1.5s infinite;
+  background-color: var(--gray-200);
+  border-radius: var(--radius-md);
+  color: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  100% { left: 100%; }
+}

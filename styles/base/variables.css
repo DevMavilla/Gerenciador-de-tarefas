@@ -1,0 +1,88 @@
+:root {
+  /* Cores principais (psicologia das cores) */
+  --primary: #6C63FF;      /* Roxo: criatividade, calma */
+  --secondary: #4A44B5;    /* Azul mais escuro: confiança */
+  --primary-light: #4895ef;
+    --primary-dark: #3a56d4;
+    --secondary: #7209b7;
+    --secondary-light: #9d4edd;
+    --success: #4cc9f0;
+    --danger: #f72585;
+    --warning: #ff9e00;
+    --light: #f8f9fa;
+    --dark: #212529;
+    --gray-100: #f1f3f5;
+    --gray-200: #e9ecef;
+    --gray-300: #dee2e6;
+    --gray-600: #6c757d;
+
+     /* Sombras */
+    --shadow-sm: 0 2px 6px rgba(0,0,0,0.05);
+    --shadow-md: 0 5px 15px rgba(0,0,0,0.08);
+    --shadow-lg: 0 12px 25px rgba(0,0,0,0.1);
+    --shadow-xl: 0 20px 40px rgba(0,0,0,0.15);
+    
+    /* Espaçamentos */
+    --space-xs: 5px;
+    --space-sm: 10px;
+    --space-md: 15px;
+    --space-lg: 25px;
+    --space-xl: 40px;
+    
+    /* Raio de borda */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-xl: 20px;
+    
+    /* Transições */
+    --transition-fast: 0.2s;
+    --transition-medium: 0.35s;
+    --transition-slow: 0.5s;
+    
+    /* Gradientes */
+    --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    --gradient-secondary: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
+
+  
+  /* Tons de cinza (psicologia analítica) */
+  --gray-100: #f8f9fa;
+  --gray-200: #e9ecef;
+  --gray-300: #dee2e6;
+  --gray-400: #ced4da;
+  --gray-500: #adb5bd;
+  --gray-600: #6c757d;
+  --gray-700: #495057;
+  --gray-800: #343a40;
+  --gray-900: #212529;
+  
+  /* Prioridades (neurociência visual) */
+  --priority-high: #FF6B6B;    /* Vermelho: captura atenção imediata */
+  --priority-medium: #FFD166;  /* Amarelo: alerta sem estresse */
+  --priority-low: #06D6A0;     /* Verde: calmo, não urgente */
+  
+  /* Espaçamentos (design sistemático) */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  
+  /* Bordas */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+  
+  /* Sombras (profundidade visual) */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1);
+  
+  /* Transições (microinterações) */
+  --transition-fast: 150ms ease;
+  --transition-medium: 300ms ease;
+  --transition-slow: 500ms ease;
+}
+

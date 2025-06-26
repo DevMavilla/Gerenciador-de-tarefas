@@ -1,0 +1,74 @@
+/* Psicologia das notificações: visibilidade sem interrupção */
+.notification-area {
+  position: fixed;
+  top: var(--space-lg);
+  right: var(--space-lg);
+  z-index: 2000;
+  max-width: 350px;
+  width: 100%;
+}
+
+.notification {
+  background-color: white;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border-left: 4px solid;
+  transform: translateX(150%);
+  transition: transform 0.3s ease;
+}
+
+.notification.show {
+  transform: translateX(0);
+}
+
+.notification::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background-color: currentColor;
+  opacity: 0.2;
+}
+
+.notification i {
+  margin-right: var(--space-sm);
+  font-size: 1.25rem;
+}
+
+.notification.success {
+  border-left-color: var(--success);
+  color: var(--success);
+}
+
+.notification.warning {
+  border-left-color: var(--warning);
+  color: var(--warning);
+}
+
+.notification.error {
+  border-left-color: var(--danger);
+  color: var(--danger);
+}
+
+.notification.info {
+  border-left-color: var(--primary);
+  color: var(--primary);
+}
+
+.close-notification {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  background: none;
+  border: none;
+  color: currentColor;
+  cursor: pointer;
+}

@@ -1,0 +1,178 @@
+/* Psicologia dos botões: feedback tátil visual */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: var(--space-sm) var(--space-md);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-align: center;
+    white-space: nowrap;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+    outline: none;
+    gap: var(--space-sm);
+}
+
+.btn:focus {
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.3);
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Psicologia das cores para ações */
+.btn-primary {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-secondary {
+    background: var(--gradient-secondary);
+    color: white;
+}
+
+.btn-danger {
+  background-color: var(--danger);
+  color: white;
+}
+
+.btn-success {
+  background-color: var(--success);
+  color: white;
+}
+
+/* Botões com ícones (Fitts's Law) */
+.btn-icon {
+  gap: var(--space-xs);
+}
+
+/* Botões de prioridade (sinais visuais instantâneos) */
+.btn-priority-high {
+  background-color: var(--priority-high);
+  color: white;
+}
+
+.btn-priority-medium {
+  background-color: var(--priority-medium);
+  color: var(--gray-900);
+}
+
+.btn-priority-low {
+  background-color: var(--priority-low);
+  color: white;
+}
+
+/* Botão de Fechar */
+.btn-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--gray-600);
+    transition: color var(--transition-fast);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-close:hover {
+    background-color: var(--gray-100);
+    color: var(--danger);
+}
+
+/* Botão de Adicionar Tarefa */
+.add-task-btn {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 54px;
+    height: 54px;
+    font-size: 1.6rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.add-task-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+}
+
+.add-task-btn:hover::after {
+    transform: translateX(100%);
+}
+
+.add-task-btn:hover {
+    transform: translateY(-3px) rotate(5deg);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Botão de Bloco Completo */
+.btn-block {
+    display: flex;
+    width: 100%;
+    padding: var(--space-md) var(--space-lg);
+    font-size: 1rem;
+}
+
+/* Botões de Ação */
+.btn-edit {
+    background: rgba(67, 97, 238, 0.1);
+    color: var(--primary);
+    border: 1px solid rgba(67, 97, 238, 0.2);
+}
+
+.btn-edit:hover {
+    background: rgba(67, 97, 238, 0.15);
+}
+
+.btn-delete {
+    background: rgba(247, 37, 133, 0.1);
+    color: var(--danger);
+    border: 1px solid rgba(247, 37, 133, 0.2);
+}
+
+.btn-delete:hover {
+    background: rgba(247, 37, 133, 0.15);
+}
